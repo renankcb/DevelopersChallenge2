@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankReconciliation.Domain\BankReconciliation.Domain.csproj" />
+    <ProjectReference Include="..\BankReconciliation.Infrastructure.Corsscuting\BankReconciliation.Infrastructure.Corsscuting.csproj" />
+    <ProjectReference Include="..\BankReconciliation.Infrastructure.DataContracts\BankReconciliation.Infrastructure.DataContracts.csproj" />
+  </ItemGroup>
+
+</Project>

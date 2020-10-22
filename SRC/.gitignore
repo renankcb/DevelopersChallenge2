@@ -1,0 +1,15 @@
+﻿*.vs
+*.cache
+*.user
+*.suo
+*.datasource
+[Rr]elease
+[Dd]ebug
+[Pp]ackages
+[Oo]bj
+[Bb]in
+build
+/.axoCover
+[Nn]uget.config
+.idea/
+out/
