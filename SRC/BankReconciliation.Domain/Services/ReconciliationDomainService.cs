@@ -14,7 +14,7 @@ namespace BankReconciliation.Domain.Services
         /// </summary>
         /// <param name="extracts"></param>
         /// <returns></returns>
-        public Extract Reconciliate(List<Extract> extracts)
+        public Reconciliation Reconciliate(List<Extract> extracts)
         {
             // Validate Extracts
             this.Validate(extracts);
@@ -22,9 +22,12 @@ namespace BankReconciliation.Domain.Services
             // Remove duplicated transactions
             var distinctTransactions = extracts.SelectMany(e => e.Transactions).Distinct().ToList();
 
-            var response = new Extract()
+            var response = new Reconciliation()
             {
-                Transactions = distinctTransactions
+                Transactions = distinctTransactions,
+                ExtractsName = extracts.Select(e => e.Name).ToList(),
+                BankAccount = extracts.Select(e => e.BankAccount).FirstOrDefault(),
+                Balance = extracts.Select(e => e.Balance).FirstOrDefault()
             };
 
             return response;
@@ -44,7 +47,7 @@ namespace BankReconciliation.Domain.Services
             if (extracts.Select(e => e.BankAccount).Distinct().Skip(1).Any())
                 throw new ArgumentException("Extratos são de bancos distintos");
         }
-        
+
         #endregion
     }
 }

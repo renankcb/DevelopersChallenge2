@@ -9,7 +9,7 @@ namespace BankReconciliation.Infrastructure.DataContracts.DTO
         public int BankCode { get; set; }
 
         [DataMember]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         [DataMember]
         public string Type { get; set; }

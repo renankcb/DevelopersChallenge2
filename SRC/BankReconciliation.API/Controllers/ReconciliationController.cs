@@ -33,7 +33,7 @@ namespace BankReconciliation.API.Controllers
         {
             try
             {
-                ExtractDTO response = await this.reconciliationService.ReconciliateAsync(files);
+                ReconciliationDTO response = await this.reconciliationService.ReconciliateAsync(files);
 
                 return Ok(response);
             }

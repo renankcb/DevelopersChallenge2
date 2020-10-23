@@ -33,7 +33,7 @@ namespace BankReconciliation.Application.Services
         /// </summary>
         /// <param name="files"></param>
         /// <returns></returns>
-        public async Task<ExtractDTO> ReconciliateAsync(IList<IFormFile> files)
+        public async Task<ReconciliationDTO> ReconciliateAsync(IList<IFormFile> files)
         {
             List<Extract> extracts = new List<Extract>();
 
@@ -47,7 +47,7 @@ namespace BankReconciliation.Application.Services
             }
 
             // Reconciliate extracts
-            Extract result = this.reconciliationDomainService.Reconciliate(extracts);
+            Reconciliation result = this.reconciliationDomainService.Reconciliate(extracts);
 
             // Map result to DTO
             var response = result.ToDTO();

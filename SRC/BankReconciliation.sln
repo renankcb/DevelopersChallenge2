@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5ACCF0D1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5B7AEBD5-4858-4984-A920-E09171D9C7BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankReconciliation.Domain.Tests", "BankReconciliation.Domain.Tests\BankReconciliation.Domain.Tests.csproj", "{10DA0480-0218-4740-BC49-B8398A039F62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankReconciliation.Domain.Tests", "BankReconciliation.Domain.Tests\BankReconciliation.Domain.Tests.csproj", "{10DA0480-0218-4740-BC49-B8398A039F62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankReconciliation.Infrastructure.DataContracts", "BankReconciliation.Infrastructure.DataContracts\BankReconciliation.Infrastructure.DataContracts.csproj", "{64C9754B-19E4-4643-8C7D-D1BA9FF93E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankReconciliation.Infrastructure.DataContracts", "BankReconciliation.Infrastructure.DataContracts\BankReconciliation.Infrastructure.DataContracts.csproj", "{64C9754B-19E4-4643-8C7D-D1BA9FF93E11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

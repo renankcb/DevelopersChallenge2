@@ -10,7 +10,40 @@ namespace BankReconciliation.Application.Extensions
         #region Map To Domain
 
         public static Extract ToDomain(this ExtractOFX source) =>
-            source == null ? null : new Extract();
+            source == null ? null : new Extract()
+            {
+                BankAccount = source.BankInfo?.Statement?.BankStatementResponse?.BankAccount?.ToDomain(),
+                FinalDate = source.BankInfo?.Statement?.BankStatementResponse?.BankTransactionsData?.EndDate,
+                InitialDate = source.BankInfo?.Statement?.BankStatementResponse?.BankTransactionsData?.StartDate,
+                Transactions = source.BankInfo?.Statement?.BankStatementResponse?.BankTransactionsData?.Transactions?.Select(t => t.ToDomain()).ToList(),
+                Balance = source.BankInfo?.Statement?.BankStatementResponse?.Balance?.ToDomain(),
+                Currency = source.BankInfo?.Statement.BankStatementResponse.Currency,
+                Name = source.Name
+            };
+
+        public static BankAccount ToDomain(this BankAccountOFX source) =>
+            source == null ? null : new BankAccount()
+            {
+                AccountId = source.AccountId,
+                BankCode = source.BankCode,
+                Type = source.Type
+            };
+
+        public static Transaction ToDomain(this TransactionOFX source) =>
+            source == null ? null : new Transaction()
+            {
+                Date = source.Date,
+                Description = source.Description,
+                Type = source.Type,
+                Value = source.Value
+            };
+
+        public static Balance ToDomain(this BalanceAggregateOFX source) =>
+            source == null ? null : new Balance()
+            {
+                Date = source.Date,
+                Value = source.Balance
+            };
 
         #endregion
 
@@ -23,7 +56,9 @@ namespace BankReconciliation.Application.Extensions
                 FinalDate = source.FinalDate,
                 InitialDate = source.InitialDate,
                 Status = source.Status?.ToDTO(),
-                Transactions = source.Transactions?.Select(t => t.ToDTO()).ToList()
+                Transactions = source.Transactions?.Select(t => t.ToDTO()).ToList(),
+                Balance = source.Balance?.ToDTO(),
+                Currency = source.Currency
             };
 
         public static BankAccountDTO ToDTO(this BankAccount source) =>
@@ -48,6 +83,22 @@ namespace BankReconciliation.Application.Extensions
                 Type = source.Type,
                 Description = source.Description,
                 Value = source.Value
+            };
+
+        public static BalanceDTO ToDTO(this Balance source) =>
+            source == null ? null : new BalanceDTO()
+            {
+                Date = source.Date,
+                Value = source.Value
+            };
+
+        public static ReconciliationDTO ToDTO(this Reconciliation source) =>
+            source == null ? null : new ReconciliationDTO()
+            {
+                BankAccount = source.BankAccount.ToDTO(),
+                ExtractsName = source.ExtractsName,
+                Transactions = source.Transactions.Select(t => t.ToDTO()).ToList(),
+                Balance = source.Balance.ToDTO()
             };
 
         #endregion

@@ -7,6 +7,6 @@ namespace BankReconciliation.Application.Services
 {
     public interface IReconciliationAppService
     {
-        Task<ExtractDTO> ReconciliateAsync(IList<IFormFile> files);
+        Task<ReconciliationDTO> ReconciliateAsync(IList<IFormFile> files);
     }
 }

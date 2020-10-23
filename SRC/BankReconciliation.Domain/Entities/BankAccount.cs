@@ -7,7 +7,7 @@ namespace BankReconciliation.Domain.Entities
     {
         public int BankCode { get; set; }
 
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         public string Type { get; set; }
 

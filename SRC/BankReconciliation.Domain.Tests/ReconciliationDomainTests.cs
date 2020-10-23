@@ -45,7 +45,7 @@ namespace BankReconciliation.Domain.Tests
 
             // Test
             var reconciliationService = new ReconciliationDomainService();
-            var result = reconciliationService.Reconciliate(extracts);
+            reconciliationService.Reconciliate(extracts);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace BankReconciliation.Domain.Tests
             //OFX 1
             var transaction1_ofx1 = new Transaction()
             {
-                Date = new DateTime(2020, 1, 1, 10, 0, 0),
+                Date = "20140203100000[-03:EST]",
                 Description = "Transacao 1",
                 Type = "DEBIT",
                 Value = 1
@@ -64,7 +64,7 @@ namespace BankReconciliation.Domain.Tests
 
             var transaction2_ofx1 = new Transaction()
             {
-                Date = new DateTime(2020, 1, 2, 10, 0, 0),
+                Date = "20140204100000[-03:EST]",
                 Description = "Transacao 1",
                 Type = "CREDIT",
                 Value = 1
@@ -72,7 +72,7 @@ namespace BankReconciliation.Domain.Tests
 
             var transaction3_ofx1 = new Transaction()
             {
-                Date = new DateTime(2020, 1, 3, 10, 0, 0),
+                Date = "20140204100000[-04:EST]",
                 Description = "Transacao 1",
                 Type = "DEBIT",
                 Value = 1
@@ -91,15 +91,15 @@ namespace BankReconciliation.Domain.Tests
             //OFX 2
             var transaction1_ofx2 = new Transaction()
             {
-                Date = new DateTime(2020, 1, 4, 10, 0, 0),
+                Date = "20140204100000[-03:EST]",
                 Description = "Transacao 1",
-                Type = "DEBIT",
+                Type = "CREDIT",
                 Value = 1
             };
 
             var transaction2_ofx2 = new Transaction()
             {
-                Date = new DateTime(2020, 1, 3, 10, 0, 0),
+                Date = "20140205100000[-03:EST]",
                 Description = "Transacao 1",
                 Type = "DEBIT",
                 Value = 1
@@ -107,7 +107,7 @@ namespace BankReconciliation.Domain.Tests
 
             var transaction3_ofx2 = new Transaction()
             {
-                Date = new DateTime(2020, 1, 5, 10, 0, 0),
+                Date = "20140211100000[-03:EST]",
                 Description = "Transacao 1",
                 Type = "CREDIT",
                 Value = 1

@@ -5,6 +5,6 @@ namespace BankReconciliation.Domain.Services
 {
     public interface IReconciliationDomainService
     {
-        Extract Reconciliate(List<Extract> extracts);
+        Reconciliation Reconciliate(List<Extract> extracts);
     }
 }

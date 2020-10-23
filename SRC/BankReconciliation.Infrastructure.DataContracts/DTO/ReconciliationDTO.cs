@@ -4,27 +4,18 @@ using System.Runtime.Serialization;
 namespace BankReconciliation.Infrastructure.DataContracts.DTO
 {
     [DataContract]
-    public class ExtractDTO
+    public class ReconciliationDTO
     {
-        [DataMember]
-        public StatusDTO Status { get; set; }
-
         [DataMember]
         public BankAccountDTO BankAccount { get; set; }
 
         [DataMember]
-        public string InitialDate { get; set; }
-
-        [DataMember]
-        public string FinalDate { get; set; }
+        public List<string> ExtractsName { get; set; }
 
         [DataMember]
         public List<TransactionDTO> Transactions { get; set; }
 
         [DataMember]
         public BalanceDTO Balance { get; set; }
-
-        [DataMember]
-        public string Currency { get; set; }
     }
 }

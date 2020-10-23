@@ -3,18 +3,12 @@
 namespace BankReconciliation.Infrastructure.DataContracts.DTO
 {
     [DataContract]
-    public class TransactionDTO
+    public class BalanceDTO
     {
         [DataMember]
-        public string Type { get; set; }
+        public double Value { get; set; }
 
         [DataMember]
         public string Date { get; set; }
-
-        [DataMember]
-        public string Description { get; set; }
-
-        [DataMember]
-        public double Value { get; set; }
     }
 }
