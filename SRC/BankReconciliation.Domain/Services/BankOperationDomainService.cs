@@ -14,7 +14,7 @@ namespace BankReconciliation.Domain.Services
         /// </summary>
         /// <param name="extracts"></param>
         /// <returns></returns>
-        public Reconciliation ConsolidateExtracts(List<Extract> extracts)
+        public BankConsolidateExtract ConsolidateExtracts(List<Extract> extracts)
         {
             // Validate Extracts
             this.Validate(extracts);
@@ -22,7 +22,7 @@ namespace BankReconciliation.Domain.Services
             // Remove duplicated transactions
             var distinctTransactions = extracts.SelectMany(e => e.Transactions).Distinct().ToList();
 
-            var response = new Reconciliation()
+            var response = new BankConsolidateExtract()
             {
                 Transactions = distinctTransactions,
                 ExtractsName = extracts.Select(e => e.Name).ToList(),

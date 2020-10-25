@@ -92,8 +92,8 @@ namespace BankReconciliation.Application.Extensions
                 Value = source.Value
             };
 
-        public static BankConsolidateExtract ToDTO(this Reconciliation source) =>
-            source == null ? null : new BankConsolidateExtract()
+        public static BankConsolidateExtractDTO ToDTO(this BankConsolidateExtract source) =>
+            source == null ? null : new BankConsolidateExtractDTO()
             {
                 BankAccount = source.BankAccount.ToDTO(),
                 ExtractsName = source.ExtractsName,

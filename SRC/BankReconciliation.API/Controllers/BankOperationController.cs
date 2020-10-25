@@ -35,7 +35,7 @@ namespace BankReconciliation.API.Controllers
         {
             try
             {
-                BankConsolidateExtract response = await this.bankOperationsService.ParseAndConsolidateExtractsAsync(files);
+                BankConsolidateExtractDTO response = await this.bankOperationsService.ParseAndConsolidateExtractsAsync(files);
 
                 return Ok(response);
             }

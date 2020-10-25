@@ -7,6 +7,6 @@ namespace BankReconciliation.Application.Services
 {
     public interface IBankOperationAppService
     {
-        Task<BankConsolidateExtract> ParseAndConsolidateExtractsAsync(IList<IFormFile> files);
+        Task<BankConsolidateExtractDTO> ParseAndConsolidateExtractsAsync(IList<IFormFile> files);
     }
 }

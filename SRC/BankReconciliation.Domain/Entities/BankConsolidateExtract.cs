@@ -2,7 +2,7 @@
 
 namespace BankReconciliation.Domain.Entities
 {
-    public class Reconciliation
+    public class BankConsolidateExtract
     {
         public BankAccount BankAccount { get; set; }
 
