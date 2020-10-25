@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace BankReconciliation.Domain.Services
 {
-    public interface IReconciliationDomainService
+    public interface IBankOperationDomainService
     {
-        Reconciliation Reconciliate(List<Extract> extracts);
+        Reconciliation ConsolidateExtracts(List<Extract> extracts);
     }
 }

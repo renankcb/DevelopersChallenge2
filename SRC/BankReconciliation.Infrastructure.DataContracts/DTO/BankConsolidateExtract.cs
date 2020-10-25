@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace BankReconciliation.Infrastructure.DataContracts.DTO
 {
     [DataContract]
-    public class ReconciliationDTO
+    public class BankConsolidateExtract
     {
         [DataMember]
         public BankAccountDTO BankAccount { get; set; }

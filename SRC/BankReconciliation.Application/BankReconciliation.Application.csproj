@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BankReconciliation.Domain\BankReconciliation.Domain.csproj" />
-    <ProjectReference Include="..\BankReconciliation.Infrastructure.Corsscuting\BankReconciliation.Infrastructure.Corsscuting.csproj" />
+    <ProjectReference Include="..\BankReconciliation.Infrastructure.Corsscuting\BankReconciliation.Infrastructure.Crosscuting.csproj" />
     <ProjectReference Include="..\BankReconciliation.Infrastructure.DataContracts\BankReconciliation.Infrastructure.DataContracts.csproj" />
   </ItemGroup>
 

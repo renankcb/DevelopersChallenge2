@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BankReconciliation.Domain.Services
 {
-    public class ReconciliationDomainService : IReconciliationDomainService
+    public class BankOperationDomainService : IBankOperationDomainService
     {
         #region Public Methods
 
@@ -14,7 +14,7 @@ namespace BankReconciliation.Domain.Services
         /// </summary>
         /// <param name="extracts"></param>
         /// <returns></returns>
-        public Reconciliation Reconciliate(List<Extract> extracts)
+        public Reconciliation ConsolidateExtracts(List<Extract> extracts)
         {
             // Validate Extracts
             this.Validate(extracts);

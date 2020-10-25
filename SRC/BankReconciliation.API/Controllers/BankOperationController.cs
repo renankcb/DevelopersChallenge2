@@ -2,26 +2,27 @@
 using BankReconciliation.Infrastructure.DataContracts.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BankReconciliation.API.Controllers
 {
-    [Route("api/[controller]")]
-    public class ReconciliationController : Controller
+    [Route("api/bank")]
+    public class BankOperationController : Controller
     {
         #region Fields
 
-        private readonly IReconciliationAppService reconciliationService;
+        private readonly IBankOperationAppService bankOperationsService;
 
         #endregion
 
         #region Constructors
 
-        public ReconciliationController(IReconciliationAppService reconciliationService)
+        public BankOperationController(IBankOperationAppService reconciliationService)
         {
-            this.reconciliationService = reconciliationService;
+            this.bankOperationsService = reconciliationService;
         }
 
         #endregion
@@ -29,11 +30,12 @@ namespace BankReconciliation.API.Controllers
         #region Public Methods
 
         [HttpPost]
-        public async Task<IActionResult> ReconciliateAsync([FromForm] IList<IFormFile> files)
+        [Route("consolidate")]
+        public async Task<IActionResult> ConsolidateExtractAsync([FromForm] IList<IFormFile> files)
         {
             try
             {
-                ReconciliationDTO response = await this.reconciliationService.ReconciliateAsync(files);
+                BankConsolidateExtract response = await this.bankOperationsService.ParseAndConsolidateExtractsAsync(files);
 
                 return Ok(response);
             }

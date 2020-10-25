@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace BankReconciliation.Application.Services
 {
-    public interface IReconciliationAppService
+    public interface IBankOperationAppService
     {
-        Task<ReconciliationDTO> ReconciliateAsync(IList<IFormFile> files);
+        Task<BankConsolidateExtract> ParseAndConsolidateExtractsAsync(IList<IFormFile> files);
     }
 }

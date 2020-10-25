@@ -44,8 +44,8 @@ namespace BankReconciliation.Domain.Tests
             var extracts = new List<Extract>() { extract1, extract2 };
 
             // Test
-            var reconciliationService = new ReconciliationDomainService();
-            reconciliationService.Reconciliate(extracts);
+            var reconciliationService = new BankOperationDomainService();
+            reconciliationService.ConsolidateExtracts(extracts);
         }
 
         [TestMethod]
@@ -130,8 +130,8 @@ namespace BankReconciliation.Domain.Tests
             };
 
             // Test
-            var reconciliationService = new ReconciliationDomainService();
-            var result = reconciliationService.Reconciliate(extracts);
+            var reconciliationService = new BankOperationDomainService();
+            var result = reconciliationService.ConsolidateExtracts(extracts);
 
             // Assert
             Assert.AreEqual(5, result.Transactions.Count);

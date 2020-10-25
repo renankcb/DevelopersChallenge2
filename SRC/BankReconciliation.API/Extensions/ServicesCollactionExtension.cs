@@ -8,8 +8,8 @@ namespace BankReconciliation.API.Extensions
     {
         public static IServiceCollection AddServicesCollection(this IServiceCollection services)
         {
-            services.AddScoped<IReconciliationAppService, ReconciliationAppService>();
-            services.AddScoped<IReconciliationDomainService, ReconciliationDomainService>();
+            services.AddScoped<IBankOperationAppService, BankOperationAppService>();
+            services.AddScoped<IBankOperationDomainService, BankOperationDomainService>();
 
             return services;
         }

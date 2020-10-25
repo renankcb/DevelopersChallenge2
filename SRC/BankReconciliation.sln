@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankReconciliation.Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankReconciliation.Domain", "BankReconciliation.Domain\BankReconciliation.Domain.csproj", "{49529AF5-D34C-41FD-A924-AB4362C4F3EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankReconciliation.Infrastructure.Corsscuting", "BankReconciliation.Infrastructure.Corsscuting\BankReconciliation.Infrastructure.Corsscuting.csproj", "{62BEAB6E-FE42-44B6-97F5-B3177414C1D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankReconciliation.Infrastructure.Crosscuting", "BankReconciliation.Infrastructure.Corsscuting\BankReconciliation.Infrastructure.Crosscuting.csproj", "{62BEAB6E-FE42-44B6-97F5-B3177414C1D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5ACCF0D1-D4A7-401D-B335-C098F3BEB366}"
 EndProject
