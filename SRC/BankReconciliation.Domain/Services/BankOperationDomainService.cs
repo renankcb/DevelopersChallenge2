@@ -1,12 +1,29 @@
 ﻿using BankReconciliation.Domain.Entities;
+using BankReconciliation.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BankReconciliation.Domain.Services
 {
     public class BankOperationDomainService : IBankOperationDomainService
     {
+        #region Fields
+
+        private readonly IBankExtractRepository _bankReconciliationRepository;
+
+        #endregion
+
+        #region Constructors
+
+        public BankOperationDomainService(IBankExtractRepository bankReconciliationRepository)
+        {
+            this._bankReconciliationRepository = bankReconciliationRepository;
+        }
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
@@ -31,6 +48,11 @@ namespace BankReconciliation.Domain.Services
             };
 
             return response;
+        }
+
+        public async Task AddAsync(BankConsolidateExtract result)
+        {
+            await this._bankReconciliationRepository.AddAsync(result);
         }
 
         #endregion

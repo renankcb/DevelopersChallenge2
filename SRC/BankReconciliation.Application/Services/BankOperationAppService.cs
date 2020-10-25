@@ -1,5 +1,6 @@
 ﻿using BankReconciliation.Application.Extensions;
 using BankReconciliation.Domain.Entities;
+using BankReconciliation.Domain.Repositories;
 using BankReconciliation.Domain.Services;
 using BankReconciliation.Infrastructure.Corsscuting.Parser;
 using BankReconciliation.Infrastructure.DataContracts.DTO;
@@ -15,13 +16,16 @@ namespace BankReconciliation.Application.Services
 
         private readonly IBankOperationDomainService bankOperationsDomainService;
 
+        private readonly IUnitOfWork unitOfWork;
+
         #endregion
 
         #region Constructors
 
-        public BankOperationAppService(IBankOperationDomainService reconciliationDomainService)
+        public BankOperationAppService(IBankOperationDomainService reconciliationDomainService, IUnitOfWork unitOfWork)
         {
             this.bankOperationsDomainService = reconciliationDomainService;
+            this.unitOfWork = unitOfWork;
         }
 
         #endregion
@@ -33,7 +37,7 @@ namespace BankReconciliation.Application.Services
         /// </summary>
         /// <param name="files"></param>
         /// <returns></returns>
-        public async Task<Infrastructure.DataContracts.DTO.BankConsolidateExtractDTO> ParseAndConsolidateExtractsAsync(IList<IFormFile> files)
+        public async Task<BankConsolidateExtractDTO> ParseAndConsolidateExtractsAsync(IList<IFormFile> files)
         {
             List<Extract> extracts = new List<Extract>();
 
@@ -47,12 +51,21 @@ namespace BankReconciliation.Application.Services
             }
 
             // Reconciliate extracts
-            Domain.Entities.BankConsolidateExtract result = this.bankOperationsDomainService.ConsolidateExtracts(extracts);
+            BankConsolidateExtract result = this.bankOperationsDomainService.ConsolidateExtracts(extracts);
+
+            // Save Extract
+            await SaveAsync(result);
 
             // Map result to DTO
             var response = result.ToDTO();
 
             return response;
+        }
+
+        private async Task SaveAsync(BankConsolidateExtract result)
+        {
+            //await this.bankOperationsDomainService.AddAsync(result);
+            //await this.unitOfWork.Commit();
         }
 
         #endregion

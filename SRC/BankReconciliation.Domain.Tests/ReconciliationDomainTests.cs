@@ -44,7 +44,7 @@ namespace BankReconciliation.Domain.Tests
             var extracts = new List<Extract>() { extract1, extract2 };
 
             // Test
-            var reconciliationService = new BankOperationDomainService();
+            var reconciliationService = new BankOperationDomainService(null);
             reconciliationService.ConsolidateExtracts(extracts);
         }
 
@@ -130,7 +130,7 @@ namespace BankReconciliation.Domain.Tests
             };
 
             // Test
-            var reconciliationService = new BankOperationDomainService();
+            var reconciliationService = new BankOperationDomainService(null);
             var result = reconciliationService.ConsolidateExtracts(extracts);
 
             // Assert
