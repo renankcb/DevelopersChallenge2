@@ -1,8 +1,8 @@
 ﻿using BankReconciliation.Application.Extensions;
+using BankReconciliation.Core.Parser;
 using BankReconciliation.Domain.Entities;
 using BankReconciliation.Domain.Repositories;
 using BankReconciliation.Domain.Services;
-using BankReconciliation.Infrastructure.Corsscuting.Parser;
 using BankReconciliation.Infrastructure.DataContracts.DTO;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
