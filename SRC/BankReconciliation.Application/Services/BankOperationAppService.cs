@@ -1,7 +1,7 @@
 ﻿using BankReconciliation.Application.Extensions;
+using BankReconciliation.Core.Parser;
 using BankReconciliation.Domain.Entities;
 using BankReconciliation.Domain.Services;
-using BankReconciliation.Infrastructure.Corsscuting.Parser;
 using BankReconciliation.Infrastructure.DataContracts.DTO;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace BankReconciliation.Application.Services
         /// </summary>
         /// <param name="files"></param>
         /// <returns></returns>
-        public async Task<Infrastructure.DataContracts.DTO.BankConsolidateExtractDTO> ParseAndConsolidateExtractsAsync(IList<IFormFile> files)
+        public async Task<BankConsolidateExtractDTO> ParseAndConsolidateExtractsAsync(IList<IFormFile> files)
         {
             List<Extract> extracts = new List<Extract>();
 
@@ -47,7 +47,7 @@ namespace BankReconciliation.Application.Services
             }
 
             // Reconciliate extracts
-            Domain.Entities.BankConsolidateExtract result = this.bankOperationsDomainService.ConsolidateExtracts(extracts);
+            BankConsolidateExtract result = this.bankOperationsDomainService.ConsolidateExtracts(extracts);
 
             // Map result to DTO
             var response = result.ToDTO();

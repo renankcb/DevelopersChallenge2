@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace BankReconciliation.Infrastructure.Corsscuting.Parser.Contracts
+namespace BankReconciliation.Core.Parser.Contracts
 {
     public class BankInfoOFX
     {

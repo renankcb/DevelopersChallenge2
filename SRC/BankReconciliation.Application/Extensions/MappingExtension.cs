@@ -1,5 +1,5 @@
-﻿using BankReconciliation.Domain.Entities;
-using BankReconciliation.Infrastructure.Corsscuting.Parser.Contracts;
+﻿using BankReconciliation.Core.Parser.Contracts;
+using BankReconciliation.Domain.Entities;
 using BankReconciliation.Infrastructure.DataContracts.DTO;
 using System.Linq;
 

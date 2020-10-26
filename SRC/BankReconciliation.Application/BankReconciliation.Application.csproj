@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BankReconciliation.Core.Parser\BankReconciliation.Core.Parser.csproj" />
     <ProjectReference Include="..\BankReconciliation.Domain\BankReconciliation.Domain.csproj" />
-    <ProjectReference Include="..\BankReconciliation.Infrastructure.Corsscuting\BankReconciliation.Infrastructure.Crosscuting.csproj" />
     <ProjectReference Include="..\BankReconciliation.Infrastructure.DataContracts\BankReconciliation.Infrastructure.DataContracts.csproj" />
   </ItemGroup>
 

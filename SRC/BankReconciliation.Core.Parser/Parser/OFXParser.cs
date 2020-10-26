@@ -1,4 +1,4 @@
-﻿using BankReconciliation.Infrastructure.Corsscuting.Parser.Contracts;
+﻿using BankReconciliation.Core.Parser.Contracts;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace BankReconciliation.Infrastructure.Corsscuting.Parser
+namespace BankReconciliation.Core.Parser
 {
     public class OFXParser
     {
